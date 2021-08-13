@@ -1,49 +1,27 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useContext } from 'react';
 import { CountryFormContext } from '../../../App';
+import { ThemeContext, themes } from '../../ThemeProducer';
 import CountryInput from './country input/CountryInput';
-import RegionFilter from './filter/RegionFilter';
-import { regions } from '../../../App';
+import RegionFilter from './region filter/RegionFilter';
 
 function Form() {
-  const [region, setRegion] = useState(regions.All);
-  const countryInput = useRef();
-  const { __setCountryForm, countryForm } = useContext(CountryFormContext);
-
-  useEffect(() => {
-    const resetFields = () => {
-      countryInput.current.value = '';
-      setRegion(regions.All);
-    };
-    if (countryForm.inDefaultState) resetFields();
-  }, [countryForm.inDefaultState]);
-
-  useEffect(() => {
-    countryInput.current.value = countryForm.name;
-    setRegion(countryForm.region);
-  }, [countryForm.name, countryForm.region]);
-
-  const handleSubmit = event => {
-    event.preventDefault();
-    __setCountryForm({
-      name: countryInput.current.value,
-      region: region,
-      inDefaultState: isFormInDefaultState(),
-    });
-  };
-
-  const isFormInDefaultState = () =>
-    countryInput.current.value === '' && region === regions.All;
+  const { name, setName, region, setRegion } = useContext(CountryFormContext);
+  const theme = useContext(ThemeContext);
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={event => event.preventDefault()}>
       <div className='relative-container'>
-        <CountryInput countryInput={countryInput} />
-        <button className='search-img' type='submit'>
-          <img src='resources/images/search icon.svg' alt='magnifying glass' />
-        </button>
+        <CountryInput name={name} setName={setName} />
+        <img
+          className='search-img'
+          src={`resources/images/${
+            theme === themes.LIGHT ? 'gray' : 'white'
+          }-search-icon.svg`}
+          alt='magnifying glass'
+        />
       </div>
 
-      <RegionFilter setRegion={setRegion} region={region} />
+      <RegionFilter region={region} setRegion={setRegion} />
     </form>
   );
 }

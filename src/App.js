@@ -17,11 +17,8 @@ export const regions = {
 function App() {
   const [countries, setCountries] = useState(null);
 
-  const [countryForm, setCountryForm] = useState({
-    name: '',
-    region: regions.All,
-    inDefaultState: true,
-  });
+  const [countryName, setCountryName] = useState('');
+  const [countryRegion, setCountryRegion] = useState(regions.All);
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -38,25 +35,16 @@ function App() {
     fetchCountries();
   }, []);
 
-  const __setCountryForm = ({ name, region, inDefaultState }) =>
-    setCountryForm({ name, region, inDefaultState });
-
-  const resetCountryForm = () =>
-    setCountryForm({
-      name: '',
-      region: regions.All,
-      inDefaultState: true,
-    });
-
   return (
     <Fragment>
       {countries === null ? null : (
         <CountriesContext.Provider value={countries}>
           <CountryFormContext.Provider
             value={{
-              countryForm,
-              __setCountryForm,
-              resetCountryForm,
+              name: countryName,
+              setName: setCountryName,
+              region: countryRegion,
+              setRegion: setCountryRegion,
             }}
           >
             <ThemeProducer />

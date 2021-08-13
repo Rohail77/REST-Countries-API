@@ -208,25 +208,13 @@ header .toggle-theme-btn img {
 }
 .main--home form .relative-container .search-img {
   position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 50px;
-  background: #141b21;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 4px 0 0 4px;
-  border: none;
-}
-.main--home form .relative-container .search-img:hover {
-  background: #171d20;
-}
-.main--home form .relative-container .search-img img {
-  width: 19px;
+  top: 50%;
+  left: 2.4rem;
+  transform: translateY(-50%);
+  width: 16px;
 }
 .main--home form .country-input {
-  padding: 1.5rem 2.5rem 1.5rem 7.5rem;
+  padding: 1.6rem 2.5rem 1.6rem 5.5rem;
   width: 100%;
   height: 100%;
 }
@@ -251,7 +239,6 @@ header .toggle-theme-btn img {
   width: 11px;
 }
 .main--home form > div:last-child .region-filter-options {
-  display: none;
   position: absolute;
   top: 4px;
   right: 0;
@@ -528,6 +515,13 @@ header .toggle-theme-btn img {
   }
 }
 @media only screen and (max-width: 295px) {
+  .main--home form .relative-container .search-img {
+    left: 1.5rem;
+    width: 16px;
+  }
+  .main--home form .country-input {
+    padding: 1.6rem 2.5rem 1.6rem 4.4rem;
+  }
   .main--home .countries-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, 220px);
