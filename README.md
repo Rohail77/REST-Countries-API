@@ -16,7 +16,8 @@ can be previewed on [this link](https://rest-countries-api-rohail.vercel.app/).
 
 - **Visual Studio Code** to write code.  
 - **Create React App** to generate the boilerplate for react app. 
-- **React Hooks** to incorporate state. 
+- **React Hooks** to incorporate state.
+- **Redux** to manage app state. 
 - **Local Storage API** is used to store the user theme preference. 
 - **React Router** to navigate to different sections of app.
 - **Sass Preprocessor** to style the app.
@@ -25,6 +26,8 @@ can be previewed on [this link](https://rest-countries-api-rohail.vercel.app/).
 The resources that helped me in the project:
 - https://stackoverflow.com/
 - [React Docs](https://reactjs.org/docs/getting-started.html) to learn more about hooks.
+- [Redux Docs](https://redux.js.org/introduction/getting-started).
+- [React-Redux Docs](https://react-redux.js.org/introduction/getting-started) 
 
 ## App Hosting
 The app is hosted on **Vercel** and can be previwed on [this link](https://rest-countries-api-rohail.vercel.app/).
