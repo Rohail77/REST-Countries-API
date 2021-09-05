@@ -1,7 +1,6 @@
 import Country from './country/Country';
 
 function CountriesList({ countries }) {
-  
 
   return (
     <ul className='countries-list'>

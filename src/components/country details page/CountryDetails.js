@@ -1,11 +1,10 @@
-import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { CountriesContext } from '../../App';
 import HomeButton from './home button/HomeButton';
 import Country from './country/Country';
+import { useSelector } from 'react-redux';
 
 function CountryDetails() {
-  const countries = useContext(CountriesContext);
+  const countries = useSelector(state => state.countries);
   const { countryCode } = useParams();
 
   const getCountry = () =>
@@ -15,7 +14,7 @@ function CountryDetails() {
     <main className='main--country-details'>
       <div className='wrapper'>
         <HomeButton />
-        <Country country={getCountry()} />
+        {getCountry() ? <Country country={getCountry()} /> : null}
       </div>
     </main>
   );

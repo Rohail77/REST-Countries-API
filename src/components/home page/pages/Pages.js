@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import PagesList from './pages list/PagesList';
 
-function Pages({ totalItems, itemsPerPage, currentPage, updateCurrentPage }) {
+function Pages({ totalItems, itemsPerPage, currentPage }) {
   const getTotalPages = () => Math.ceil(totalItems / itemsPerPage);
 
   return (
@@ -11,7 +11,6 @@ function Pages({ totalItems, itemsPerPage, currentPage, updateCurrentPage }) {
           <PagesList
             currentPage={currentPage}
             totalPages={getTotalPages()}
-            updateCurrentPage={updateCurrentPage}
           />
           <p className='pages__info'>
             Page {currentPage} of {getTotalPages()}
