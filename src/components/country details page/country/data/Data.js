@@ -4,11 +4,11 @@ function Data(props) {
   const {
     name,
     nativeName,
-    population,
     region,
     subregion,
     capital,
-    topLevelDomain,
+    area,
+    tld,
     currencies,
     languages,
     borders,
@@ -24,12 +24,6 @@ function Data(props) {
             <span className='country__fact__value'>{nativeName}</span>
           </div>
           <div className='country__fact'>
-            <h3 className='country__fact__name'>Population:</h3>
-            <span className='country__fact__value'>
-              {population}
-            </span>
-          </div>
-          <div className='country__fact'>
             <h3 className='country__fact__name'>Region:</h3>
             <span className='country__fact__value'>{region}</span>
           </div>
@@ -41,23 +35,25 @@ function Data(props) {
             <h3 className='country__fact__name'>Capital:</h3>
             <span className='country__fact__value'>{capital}</span>
           </div>
+          <div className='country__fact'>
+            <h3 className='country__fact__name'>Area:</h3>
+            <span className='country__fact__value'>
+              {area} km<sup>2</sup>
+            </span>
+          </div>
         </div>
         <div>
           <div className='country__fact'>
             <h3 className='country__fact__name'>Top Level Domain:</h3>
-            <span className='country__fact__value'>{topLevelDomain}</span>
+            <span className='country__fact__value'>{tld}</span>
           </div>
           <div className='country__fact'>
             <h3 className='country__fact__name'>Currencies:</h3>
-            <span className='country__fact__value'>
-              {currencies}
-            </span>
+            <span className='country__fact__value'>{currencies}</span>
           </div>
           <div className='country__fact'>
             <h3 className='country__fact__name'>Languages:</h3>
-            <span className='country__fact__value'>
-              {languages}
-            </span>
+            <span className='country__fact__value'>{languages}</span>
           </div>
         </div>
       </div>

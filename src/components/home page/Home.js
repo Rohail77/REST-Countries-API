@@ -29,11 +29,11 @@ function Home() {
     if (showAllCountries()) return countries;
     if (region === regions.All)
       return countries.filter(country =>
-        country.name.toLowerCase().includes(_name.toLowerCase())
+        country.name.common.toLowerCase().includes(_name.toLowerCase())
       );
     return countries.filter(
       country =>
-        country.name.toLowerCase().includes(_name.toLowerCase()) &&
+        country.name.common.toLowerCase().includes(_name.toLowerCase()) &&
         country.region === region
     );
   };
@@ -42,7 +42,7 @@ function Home() {
   const filteredCountries = filterCountries();
 
   const COUNTRIES_PER_PAGE = 40;
-  const softwaresForCurrentPage = () => {
+  const countriesForCurrentPage = () => {
     const initialCountryIndexForCurrentPage = () =>
       (currentPage - 1) * COUNTRIES_PER_PAGE;
     return filteredCountries.slice(
@@ -55,11 +55,11 @@ function Home() {
     <main className='main--home'>
       <div className='wrapper'>
         <Form />
-        {countries.length === 0 ? null : filteredCountries.length <= 0 ? (
+        {countries.length === 0 ? <span className='loading-msg'>Loading...</span> : filteredCountries.length <= 0 ? (
           <NoResults />
         ) : (
           <Fragment>
-            <CountriesList countries={softwaresForCurrentPage()} />
+            <CountriesList countries={countriesForCurrentPage()} />
             <Pages
               totalItems={filteredCountries.length}
               itemsPerPage={COUNTRIES_PER_PAGE}

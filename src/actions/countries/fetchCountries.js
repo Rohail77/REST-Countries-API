@@ -4,12 +4,16 @@ function fetchCountries() {
   return async function (dispatch) {
     try {
       const response = await fetch(
-        'https://restcountries.eu/rest/v2/all?fields=alpha3Code;name;nativeName;population;region;subregion;capital;topLevelDomain;currencies;languages;borders;flag'
+        'https://restcountries.com/v3/all?fields=cca3,name,region,subregion,capital,tld,currencies,languages,borders,flags,area'
       );
       const data = await response.json();
       dispatch({
         type: actionTypes.FETCH_COUNTRIES,
-        payload: data.filter(country => country.alpha3Code !== 'ISR'),
+        payload: data
+          .filter(country => country.cca3 !== 'ISR')
+          .sort((country1, country2) => {
+            return country1.name.common <= country2.name.common ? 0 : 1;
+          }),
       });
     } catch (error) {
       console.error(error);

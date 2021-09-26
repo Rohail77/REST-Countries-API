@@ -273,6 +273,16 @@ header .toggle-theme-btn img {
   li:hover {
   background: #141b21;
 }
+.main--home .loading-msg {
+  font-size: 2.5rem;
+  margin-top: 2em;
+  display: block;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .main--home .countries-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, 265px);

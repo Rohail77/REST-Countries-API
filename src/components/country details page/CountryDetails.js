@@ -8,7 +8,7 @@ function CountryDetails() {
   const { countryCode } = useParams();
 
   const getCountry = () =>
-    countries.find(country => country.alpha3Code === countryCode);
+    countries.find(country => country.cca3 === countryCode);
 
   return (
     <main className='main--country-details'>

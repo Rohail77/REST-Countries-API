@@ -3,14 +3,13 @@ import Data from './data/Data';
 
 function Country({ country }) {
   const {
-    flag,
+    flags,
     name,
-    population,
     region,
     subregion,
     capital,
-    nativeName,
-    topLevelDomain,
+    area,
+    tld,
     currencies,
     languages,
     borders,
@@ -18,18 +17,22 @@ function Country({ country }) {
 
   return (
     <section className='country'>
-      <Flag flag={flag} countryName={name} />
+      <Flag flag={flags[0]} countryName={name.common} />
       <Data
         data={{
-          name,
-          nativeName,
-          population: population.toLocaleString(),
+          name: name.common,
+          nativeName: name.nativeName[Object.keys(name.nativeName)[0]].common,
           region,
-          capital,
           subregion,
-          topLevelDomain,
-          currencies: currencies.map(currency => currency.name).join(', '),
-          languages: languages.map(language => language.name).join(', '),
+          capital: capital[0],
+          area,
+          tld: tld[0],
+          currencies: Object.keys(currencies)
+            .map(currency => currencies[currency].name)
+            .join(', '),
+          languages: Object.keys(languages)
+            .map(language => languages[language])
+            .join(', '),
           borders,
         }}
       />

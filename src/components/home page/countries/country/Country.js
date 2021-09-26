@@ -5,19 +5,19 @@ import { ThemeContext } from '../../../ThemeProducer';
 import CountryLink from '../../../common/country link/CountryLink';
 
 function Country({ country }) {
-  const { flag, name, population, region, capital, alpha3Code } = country;
+  const { flags, name, region, capital, cca3, area } = country;
 
   const theme = useContext(ThemeContext);
 
   return (
     <li className={`country elements-bg--${theme}-theme`}>
-      <CountryLink countryCode={alpha3Code}>
-        <Flag flag={flag} countryName={name} />
+      <CountryLink countryCode={cca3}>
+        <Flag flag={flags[0]} countryName={name.common} />
         <Data
-          population={population.toLocaleString()}
+          area={area}
           region={region}
-          capital={capital}
-          name={name}
+          capital={capital[0]}
+          name={name.common}
         />
       </CountryLink>
     </li>
