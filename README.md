@@ -35,4 +35,4 @@ The app is hosted on **Vercel** and can be previwed on [this link](https://rest-
 ### NOTE
 
 This repository contains the development code of the app. To view the production build see the repository: 
-https://github.com/Rohail77/REST-Countries-API-production.
+https://github.com/rohailtaha/REST-Countries-API-Production.
