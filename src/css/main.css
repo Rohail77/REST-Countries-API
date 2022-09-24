@@ -371,7 +371,7 @@ header .toggle-theme-btn img {
   padding-bottom: 4em;
 }
 .main--country-details .home-btn {
-  margin: clamp(2.8em, 5.3vw, 5.36em) 0 clamp(4.5em, 6.9vw, 7em);
+  margin: clamp(2.8em, 5.3vw, 3.5em) 0;
   border-radius: 3px;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
@@ -404,12 +404,10 @@ header .toggle-theme-btn img {
 }
 .main--country-details .country__facts {
   display: flex;
+  gap: 4em;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 5em;
-}
-.main--country-details .country__facts > div:first-child {
-  margin-right: 1.5em;
+  margin-bottom: 4em;
 }
 .main--country-details .country__fact__value {
   font-size: 1.6rem;
@@ -417,15 +415,11 @@ header .toggle-theme-btn img {
 .main--country-details .country .country__fact + .country__fact {
   margin-top: 1em;
 }
-.main--country-details .country__neighbours {
-  display: grid;
-  align-items: baseline;
-  grid-template-columns: auto 1fr;
-  gap: 0.6em;
-}
 .main--country-details .country__neighbours__list {
   display: flex;
   flex-wrap: wrap;
+  gap: 0.8em;
+  margin-top: 0.8em;
 }
 .main--country-details .country__neighbours h3 {
   white-space: nowrap;
@@ -435,9 +429,7 @@ header .toggle-theme-btn img {
 .main--country-details .country__neighbours__empty-msg {
   font-size: 1.6rem;
 }
-.main--country-details .country__neighbour {
-  margin: 0 0.4em 0.8em 0.4em;
-}
+
 .main--country-details .country__neighbour a {
   border-radius: 2px;
   padding-top: 0.4em;
@@ -456,10 +448,6 @@ header .toggle-theme-btn img {
     align-items: flex-start;
     gap: 4em;
   }
-  .main--country-details .country__neighbours {
-    grid-template-columns: initial;
-    gap: 0.8em;
-  }
   .main--country-details .country__neighbours__list {
     margin-left: -0.3em;
   }
@@ -474,6 +462,9 @@ header .toggle-theme-btn img {
   }
   .main--country-details .country__data {
     max-width: 700px;
+  }
+  .main--country-details .country__facts {
+    justify-content: flex-start;
   }
 }
 @media only screen and (max-width: 750px) {
@@ -493,9 +484,8 @@ header .toggle-theme-btn img {
   }
   .main--country-details .country__facts {
     flex-direction: column;
-  }
-  .main--country-details .country__facts > div:first-child {
-    margin: 0 0 2.5em 0;
+    gap: 2.5em;
+    margin-bottom: 2.5em;
   }
 }
 @media only screen and (max-width: 374px) {
