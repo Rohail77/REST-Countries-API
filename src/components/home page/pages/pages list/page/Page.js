@@ -1,15 +1,16 @@
-import { useContext } from 'react';
-import { ThemeContext } from '../../../../ThemeProducer';
+import { useDispatch, useSelector } from 'react-redux';
+import activatePage from '../../../../../actions/pagination/changeActiveHomePage';
 
 function Page({ pageNumber, isActive, updateCurrentPage }) {
-  const theme = useContext(ThemeContext);
+  const theme = useSelector(state => state.theme);
+  const dispatch = useDispatch();
   return (
     <li>
       <button
         className={`page page--clickable${
           isActive ? ' active-page' : ''
         } bg--${theme}`}
-        onClick={() => updateCurrentPage(pageNumber)}
+        onClick={() => dispatch(activatePage(pageNumber))}
       >
         {pageNumber}
       </button>

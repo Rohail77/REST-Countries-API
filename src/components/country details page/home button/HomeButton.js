@@ -1,9 +1,9 @@
-import { useContext } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { ThemeContext, themes } from '../../ThemeProducer';
+import { themes } from '../../ThemeProducer';
 
 function HomeButton() {
-  const theme = useContext(ThemeContext);
+  const theme = useSelector(state => state.theme);
 
   return (
     <Link to='/' className={`home-btn elements-bg--${theme}-theme`}>

@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import PreviousPageButton from './page navigation buttons/PreviousPageButton';
 import NextPageButton from './page navigation buttons/NextPageButton';
 
-function PagesList({ currentPage, totalPages, updateCurrentPage }) {
+function PagesList({ currentPage, totalPages}) {
   const endPagesReached = () => currentPage + 2 > totalPages;
 
   const getPageNumbers = () => {
@@ -38,12 +38,10 @@ function PagesList({ currentPage, totalPages, updateCurrentPage }) {
       <PreviousPageButton
         isDisabled={disabledPreviousPageButton()}
         currentPage={currentPage}
-        updateCurrentPage={updateCurrentPage}
       />
       {getPageNumbers().map(pageNumber => (
         <Page
           pageNumber={pageNumber}
-          updateCurrentPage={updateCurrentPage}
           isActive={pageNumber === currentPage}
           key={uuidv4()}
         />
@@ -51,7 +49,6 @@ function PagesList({ currentPage, totalPages, updateCurrentPage }) {
       <NextPageButton
         isDisabled={disabledNextPageButton()}
         currentPage={currentPage}
-        updateCurrentPage={updateCurrentPage}
       />
     </ul>
   );

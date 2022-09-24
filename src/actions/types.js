@@ -1,0 +1,8 @@
+const actionTypes = {
+  FETCH_COUNTRIES: 'FETCH_COUNTRIES',
+  FILTER_COUNTRIES: 'FILTER_COUNTRIES',
+  TOGGLE_THEME: 'TOGGLE_THEME',
+  ACTIVATE_PAGE: 'ACTIVATE_PAGE',
+};
+
+export default actionTypes;

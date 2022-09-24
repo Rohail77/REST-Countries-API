@@ -1,9 +1,8 @@
-import { useContext } from 'react';
+import { useSelector } from 'react-redux';
 import CountryLink from '../../../../../../common/country link/CountryLink';
-import { ThemeContext } from '../../../../../../ThemeProducer';
 
 function BorderCountry({ name, code }) {
-  const theme = useContext(ThemeContext);
+  const theme = useSelector(state => state.theme);
 
   return (
     <li className={`country__neighbour elements-bg--${theme}-theme`}>

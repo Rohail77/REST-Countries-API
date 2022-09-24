@@ -1,16 +1,20 @@
 import CountriesList from './countries/CountriesList';
 import Form from './form/Form';
-import { CountriesContext, CountryFormContext, regions } from '../../App';
-import { Fragment, useContext, useEffect, useState } from 'react';
+import { CountryFormContext, regions } from '../../App';
+import { Fragment, useContext, useEffect } from 'react';
 import Pages from './pages/Pages';
 import NoResults from './no results/NoResults';
 import ScrollTopButton from './scroll top button/ScrollTopButton';
+import { useDispatch, useSelector } from 'react-redux';
+import activatePage from '../../actions/pagination/changeActiveHomePage';
 
 function Home() {
-  const countries = useContext(CountriesContext);
+  const countries = useSelector(state => state.countries);
+  const currentPage = useSelector(state => state.activeHomePage);
+  const dispatch = useDispatch();
   const { name, region } = useContext(CountryFormContext);
-  const [currentPage, setCurrentPage] = useState(1);
-  useEffect(() => setCurrentPage(1), [name, region]);
+
+  useEffect(() => dispatch(activatePage(1)), [name, region, dispatch]);
   useEffect(() => {
     if (currentPage !== 1) document.querySelector('.pages').scrollIntoView();
   }, [currentPage]);
@@ -25,11 +29,11 @@ function Home() {
     if (showAllCountries()) return countries;
     if (region === regions.All)
       return countries.filter(country =>
-        country.name.toLowerCase().includes(_name.toLowerCase())
+        country.name.common.toLowerCase().includes(_name.toLowerCase())
       );
     return countries.filter(
       country =>
-        country.name.toLowerCase().includes(_name.toLowerCase()) &&
+        country.name.common.toLowerCase().includes(_name.toLowerCase()) &&
         country.region === region
     );
   };
@@ -38,7 +42,7 @@ function Home() {
   const filteredCountries = filterCountries();
 
   const COUNTRIES_PER_PAGE = 40;
-  const softwaresForCurrentPage = () => {
+  const countriesForCurrentPage = () => {
     const initialCountryIndexForCurrentPage = () =>
       (currentPage - 1) * COUNTRIES_PER_PAGE;
     return filteredCountries.slice(
@@ -51,16 +55,15 @@ function Home() {
     <main className='main--home'>
       <div className='wrapper'>
         <Form />
-        {filteredCountries.length <= 0 ? (
+        {countries.length === 0 ? <span className='loading-msg'>Loading...</span> : filteredCountries.length <= 0 ? (
           <NoResults />
         ) : (
           <Fragment>
-            <CountriesList countries={softwaresForCurrentPage()} />
+            <CountriesList countries={countriesForCurrentPage()} />
             <Pages
               totalItems={filteredCountries.length}
               itemsPerPage={COUNTRIES_PER_PAGE}
               currentPage={currentPage}
-              updateCurrentPage={setCurrentPage}
             />
           </Fragment>
         )}
