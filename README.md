@@ -31,4 +31,4 @@ The resources that helped me in the project:
 
 ## App Hosting
 
-The app is hosted on **Vercel** and can be previwed on [this link](https://rest-countries-api-rohail.vercel.app/).
+The app is hosted on **Vercel** and can be previwed on [this link](https://rest-countries-api-ornd.vercel.app/).
