@@ -3,7 +3,7 @@
 ## About the App
 
 This is a countries fact app built using React with countries data fetched from Rest Countries API. The app
-can be previewed on [this link](https://rest-countries-api-rohail.vercel.app/).
+can be previewed on [this link](https://rest-countries-api-ornd.vercel.app/).
 
 ## App Features
 
